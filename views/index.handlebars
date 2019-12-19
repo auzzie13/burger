@@ -4,8 +4,8 @@
 
 <ul>
   {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=false}}
+    {{#unless devour}}
+      {{> burgers/burger-block devour=false}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -14,8 +14,13 @@
 
 <ul>
   {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=true}}
+    {{#if devour}}
+      <form class="delete_form">
+      <h2 type="text" placeholder="{{this.id}}, {{this.burger_name}}">{{this.burger_name}}</h2>
+      <input type="hidden" value={{this.id}} class="delete_burger">
+      <button>Delete</button>
+      </form>
+  
     {{/if}}
   {{/each}}
 </ul>

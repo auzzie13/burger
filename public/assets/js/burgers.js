@@ -1,5 +1,8 @@
 $(function() {
-$(".change-devour").on('click', function(event) {
+$(".burgerForm").on('submit', function(event) {
+    event.preventDefault();
+    var burgerId = $(this).children(".burger_id").val();
+    console.log("burger ID: ", burgerId);
     var id = $(this).data('id');
     var newDevour = $(this).data('newdevour');
     
@@ -7,22 +10,23 @@ $(".change-devour").on('click', function(event) {
         devour: newDevour
     };
 
-    $.ajax('/api/burgers/' + id, {
-        type: "PUT",
-        data: newDevourState
+    $.ajax({
+        method: "PUT",
+        url: 'api/burgers/' + burgerId
     }).then(
-        function(){
-            console.log('changed devour to ', newDevour);
+        function(data){
+            console.log('changed devour to ', data);
             location.reload();
         });
 });
 
 $('.create-form').on('submit', function(event) {
     event.preventDefault();
+    var eaten = $(this).data('newdevour');
 
     var newBurger = {
         burger_name: $('#burg').val().trim(),
-        devour: false
+        devour: eaten
     };
     console.log(newBurger);
 
@@ -36,14 +40,16 @@ $('.create-form').on('submit', function(event) {
         });
 });
 
-$('.delete-burger').on('click', function(event) {
-    var id = $(this).data('id');
+$('.delete_form').on('click', function(event) {
+    event.preventDefault();
+    var id = $(this).children(".delete_burger").val();
 
-    $.ajax('/api/burgers/' + id, {
-        type: 'DELETE'
+    $.ajax({
+        method: 'DELETE',
+        url: '/api/burgers/' + id
     }).then(
-        function() {
-            console.log('deleted burger', id);
+        function(data) {
+            console.log('DATA: ', data);
             location.reload();
         }
     );

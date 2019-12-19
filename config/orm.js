@@ -9,6 +9,7 @@ function printQuestionMarks(num) {
   };
 
   function objToSql(ob) {
+    console.log("OB: ", ob);
     var arr = [];
     for (var key in ob) {
       var value = ob[key];
@@ -19,6 +20,7 @@ function printQuestionMarks(num) {
         arr.push(key + "=" + value);
       }
     }
+    console.log("ARRAY: ", arr.toString());
     return arr.toString();
   };
 
@@ -66,14 +68,15 @@ var orm = {
         });
     },
     delete: function(table, condition, cb) {
-      var query = 'DELETE FROM ' + table;
+      var query = "DELETE FROM " + table;
       query += " WHERE ";
       query += condition;
-
+      console.log(query);
       connection.query(query, function(err, result) {
         if(err) {
           throw err;
         }
+        console.log(result);
         cb(result);
       });
     }

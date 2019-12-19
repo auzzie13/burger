@@ -12,12 +12,13 @@ const burger = {
             cb(res);
         });
     },
-    updateOne: function(objColVals, condition, cb) {
-        orm.updateOne('burgers', objColVals, condition, function(res) {
+    updateOne: function(condition, cb) {
+        orm.updateOne('burgers', {devour: true}, condition, function(res) {
             cb(res);
         });
     },
     delete: function(condition, cb) {
+        console.log('hello again')
         orm.delete('burgers', condition, function(res) {
             cb(res);
         });
