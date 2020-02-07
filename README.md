@@ -1,11 +1,20 @@
-# burger
-With this app the user can look at a list of burgers and decide if they would like to "devour" the burger.
+# Eat-da-Burger
 
-the user can add to the list of burger choices by adding a burger name in the input box at the bottom of the page.
+url: https://burger-austinw.herokuapp.com/
 
-after a burger has been added to the list, user can then decide to delete a burger from the list, or "devour" it.
+## Description
 
-bugs:
-delete route not working
-post route not working
-new burger data coming back as null
+Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+
+* Whenever a user submits a burger's name, app will display the burger -- waiting to be devoured.
+
+* Each burger in the waiting area also has a `Devour it!` button.
+
+* Your app will store every burger in a database, whether devoured or not.
+
+## Languages
+
+-MySQL
+-Node
+-Express
+-Handlebars

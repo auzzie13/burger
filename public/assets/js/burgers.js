@@ -12,7 +12,7 @@ $(".burgerForm").on('submit', function(event) {
 
     $.ajax({
         method: "PUT",
-        url: 'api/burgers/' + burgerId
+        url: '/api/burgers/' + burgerId
     }).then(
         function(data){
             console.log('changed devour to ', data);
