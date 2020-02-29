@@ -1,8 +1,10 @@
 <li>
 	{{burger_name}}
-	<form class="burgerForm">
-	<input type="hidden" type="text" class="burger_id" value={{id}}>
-	<button class="change-devour" type="submit">Devour!</button>
-	</form>
+
+	<button class="change-devour" data-id="{{id}}" data-newdevour="{{devour}}">
+		{{#if devour}}Devour!{{else}}Puke!{{/if}}
+	</button>
+
+	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
 
 </li>
